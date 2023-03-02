@@ -192,7 +192,7 @@ def album_callback(update, context):
             song.close()
             count+=1
 
-        context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[0][2])
+        context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[0][1])
 
 
         for path in database.album_downloaded_songs:
@@ -223,7 +223,7 @@ def album_callback(update, context):
             context.bot.send_document(chat_id, song)
             song.close()
             count+=1
-        context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[1][2])
+        context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[1][1])
 
 
         for path in database.album_downloaded_songs:
@@ -255,7 +255,7 @@ def album_callback(update, context):
             context.bot.send_document(chat_id, song)
             song.close()
             count+=1
-        context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[2][2])
+        context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[2][1])
         for path in database.album_downloaded_songs:
             while True:
                 try:
