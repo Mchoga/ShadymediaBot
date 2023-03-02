@@ -12,7 +12,7 @@ import os
 
 # useful code
 # update.message.reply_text(update.message.text)
-# #context.bot.send_message(chat_id=update.effective_chat.id,text="Whatsapp")
+# context.bot.send_message(chat_id=update.effective_chat.id,text="Whatsapp")
 
 
 
