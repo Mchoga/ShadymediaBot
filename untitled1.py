@@ -8,10 +8,12 @@ b = ['aa','bb','ff']
 
 
 
-for x in b:
-    if x in m:
-        m.remove(x)
-
+try:
+    response = _execute_request(
+                     url+f"&range={downloaded}-{stop_pos}",
+                         method="GET",
+                         timeout=timeout
+                  )
 
 
 

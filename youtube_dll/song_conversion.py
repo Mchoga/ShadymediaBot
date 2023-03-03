@@ -96,19 +96,19 @@ class conversion:
 
 
 
-        print('vid_file = video.download(output_path = database.songs_root_location)')
+
         vid_file = video.download(output_path = database.songs_root_location)
-        print('base = os.path.splitext(vid_file)[0]')
+
         base = os.path.splitext(vid_file)[0]
         audio_file = base + ".mp3"
-        print('mp4_no_frame = AudioFileClip(vid_file)')
+
         mp4_no_frame = AudioFileClip(vid_file)
-        print('Writing mp4_no_frame')
+
         mp4_no_frame.write_audiofile(audio_file, logger=None)
         mp4_no_frame.close()
-        print('os removing vidfile')
+
         os.remove(vid_file)
-        print('os replacing vidfile')
+
         os.replace(audio_file, database.songs_root_location+"/"+yt.title+".mp3")
         # os.replace(audio_file, database.songs_root_location+"\\"+yt.title+".mp3")
 
