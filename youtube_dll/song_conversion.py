@@ -93,7 +93,7 @@ class conversion:
         yt.title = "".join([c for c in yt.title if c not in ['/', '\\', '|', '?', '*', ':', '>', '<', '"']])
         print('video = yt.streams.filter(only_audio=True).first()')
         #video = yt.streams.filter(only_audio=True).first()
-        video = yt.streams.filter().first()
+        video = yt.streams
         print('vid_file = video.download(output_path = database.songs_root_location)')
         vid_file = video.download(output_path = database.songs_root_location)
         print('base = os.path.splitext(vid_file)[0]')
