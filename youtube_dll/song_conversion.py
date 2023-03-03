@@ -89,7 +89,8 @@ class conversion:
         filename = database.songs_searched_results[index][0]+".mp3"
 
         yt = YouTube(link)
-        yt.title = "".join([c for c in yt.title if c not in ['/', '\\', '|', '?', '*', ':', '>', '<', '"']])
+        #yt.title = "".join([c for c in yt.title if c not in ['/', '\\', '|', '?', '*', ':', '>', '<', '"']])
+        yt.title = "songTite"
         video = yt.streams.filter(only_audio=True).first()
         vid_file = video.download(output_path = database.songs_root_location)
         base = os.path.splitext(vid_file)[0]
