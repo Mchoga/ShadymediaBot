@@ -104,6 +104,7 @@ class conversion:
 
         mp4_no_frame = AudioFileClip(vid_file)
 
+
         mp4_no_frame.write_audiofile(audio_file, logger=None)
         mp4_no_frame.close()
 
