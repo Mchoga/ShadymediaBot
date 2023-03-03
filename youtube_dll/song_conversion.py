@@ -91,7 +91,7 @@ class conversion:
 
         yt = YouTube(link)
         yt.title = "".join([c for c in yt.title if c not in ['/', '\\', '|', '?', '*', ':', '>', '<', '"']])
-        print('video = yt.streams.filter(only_audio=True).first()')
+
         video = yt.streams.filter(only_audio=True).first()
 
 
