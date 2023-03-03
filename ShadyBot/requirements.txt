@@ -1,6 +1,0 @@
-python-telegram-bot==13.13
-ytmusicapi
-pytube==12.1.2
-requests~=2.28.2
-mutagen~=1.46.0
-moviepy~=1.0.3
