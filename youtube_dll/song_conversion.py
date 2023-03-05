@@ -89,30 +89,27 @@ class conversion:
         #song_info = youtube_dl.YoutubeDL().extract_info(url=link, download=False)
         #filename = f"{song_info['title']}.mp3"
         filename = database.songs_searched_results[index][0]+".mp3"
+        try:
+            yt = YouTube(link)
+            yt.title = "".join([c for c in yt.title if c not in ['/', '\\', '|', '?', '*', ':', '>', '<', '"']])
 
-        yt = YouTube(link)
-        yt.title = "".join([c for c in yt.title if c not in ['/', '\\', '|', '?', '*', ':', '>', '<', '"']])
+            video = yt.streams.filter(only_audio=True).first()
 
-        video = yt.streams.filter(only_audio=True).first()
+            vid_file = video.download(output_path=database.songs_root_location)
 
+            base = os.path.splitext(vid_file)[0]
+            audio_file = base + ".mp3"
 
+            mp4_no_frame = AudioFileClip(vid_file)
 
+            mp4_no_frame.write_audiofile(audio_file, logger=None)
+            mp4_no_frame.close()
 
-        vid_file = video.download(output_path = database.songs_root_location)
-
-        base = os.path.splitext(vid_file)[0]
-        audio_file = base + ".mp3"
-
-        mp4_no_frame = AudioFileClip(vid_file)
-
-
-        mp4_no_frame.write_audiofile(audio_file, logger=None)
-        mp4_no_frame.close()
-
-        os.remove(vid_file)
-        os.replace(audio_file, database.songs_root_location+"/"+yt.title+".mp3")
-        # os.replace(audio_file, database.songs_root_location+"\\"+yt.title+".mp3")
-
+            os.remove(vid_file)
+            os.replace(audio_file, database.songs_root_location + "/" + yt.title + ".mp3")
+            # os.replace(audio_file, database.songs_root_location+"\\"+yt.title+".mp3")
+        except Exception as e:
+            print(f"An error occured: {type(e)}")
 
         audio_file = database.songs_root_location+"/"+yt.title+".mp3"
         # audio_file = database.songs_root_location+"\\"+yt.title+".mp3"
