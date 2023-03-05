@@ -109,6 +109,9 @@ class conversion:
             os.replace(audio_file, database.songs_root_location + "/" + yt.title + ".mp3")
             # os.replace(audio_file, database.songs_root_location+"\\"+yt.title+".mp3")
             audio_file = database.songs_root_location + "/" + yt.title + ".mp3"
+            database.album_downloaded_songs.append(audio_file)
+            conversion().song_tagging(audio_file, index)
+            return audio_file
         except Exception as e:
             print(f"An error occured: {e}")
             conversion.song_download(index)
@@ -117,9 +120,7 @@ class conversion:
 
         # audio_file = database.songs_root_location+"\\"+yt.title+".mp3"
 
-        database.album_downloaded_songs.append(audio_file)
-        conversion().song_tagging(audio_file,index)
-        return audio_file
+
 
 
 
