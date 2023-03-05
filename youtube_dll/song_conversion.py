@@ -110,6 +110,8 @@ class conversion:
             # os.replace(audio_file, database.songs_root_location+"\\"+yt.title+".mp3")
         except Exception as e:
             print(f"An error occured: {e}")
+            index.song_download(index)
+
 
         audio_file = database.songs_root_location+"/"+yt.title+".mp3"
         # audio_file = database.songs_root_location+"\\"+yt.title+".mp3"
