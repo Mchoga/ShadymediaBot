@@ -82,8 +82,8 @@ class conversion:
 
 
         print('Starting song download for '+database.songs_searched_results[index][0])
-        # link = 'https://music.youtube.com/watch?v='+database.songs_searched_results[index][4]
-        link = 'https://music.youtube.com/watch?v=abc'
+        link = 'https://music.youtube.com/watch?v='+database.songs_searched_results[index][4]
+
 
 
         #song_info = youtube_dl.YoutubeDL().extract_info(url=link, download=False)
