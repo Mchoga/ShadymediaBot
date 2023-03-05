@@ -269,7 +269,7 @@ def album_callback(update, context):
                     time.sleep(0.1)  # wait for 100ms before trying again
 
         database.album_downloaded_songs.clear()
-        update.message.reply_text("**Enjoy** 😉")
+    update.message.reply_text("**Enjoy** 😉")
 
 
 
