@@ -270,7 +270,7 @@ def album_callback(update, context):
 
         database.album_downloaded_songs.clear()
 
-    context.bot.send_message("**Enjoy** 😉")
+    context.bot.send_message(chat_id,"**Enjoy** 😉")
 
 
 
