@@ -2,6 +2,7 @@ import time
 
 import telegram.ext
 from telegram.ext import CallbackQueryHandler
+from telegram.ext import Updater
 
 from youtube_dll.song_conversion import conversion
 from ytmusic import YTMusicapp
@@ -285,12 +286,15 @@ Token = '6199155011:AAH8rBy3Ozypmbvzp5dOeYZE3fu-n4hCJqM'
 updater = telegram.ext.Updater(Token, use_context=True)
 disp = updater.dispatcher
 
+#toBeDeleted
+job = updater.job_queue
 
 
 
 
 disp.add_handler(telegram.ext.CommandHandler('album', album))
-disp.add_handler(telegram.ext.CommandHandler('song', song))
+disp.add_handler(telegram.ext.CommandHandler('song', job.run_once(song())))
+# disp.add_handler(telegram.ext.CommandHandler('song', song))
 disp.add_handler(telegram.ext.CommandHandler('start', start))
 disp.add_handler(telegram.ext.CommandHandler('help', help))
 
