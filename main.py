@@ -38,6 +38,9 @@ def song(update, context):
         global reply
         reply = "song"
         update.message.reply_text("Enter name of the song")
+        while True:
+            update.message.reply_text("hesi")
+            time.sleep(1)
 
 
 
