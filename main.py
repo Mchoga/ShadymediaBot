@@ -1,7 +1,7 @@
 import time
 
 import telegram.ext
-from telegram.ext import CallbackQueryHandler
+from telegram.ext import CallbackQueryHandler,ApplicationBuilder
 from telegram.ext import Updater
 
 from youtube_dll.song_conversion import conversion
@@ -293,11 +293,13 @@ def album_callback(update, context):
 Token = '6199155011:AAH8rBy3Ozypmbvzp5dOeYZE3fu-n4hCJqM'
 # Token = '5865766343:AAECVqR7cMD2HNoJPGuOwQW4kXWtN45v1EE'
 #print(bot.get_me())
-updater = telegram.ext.Updater(Token, use_context=True)
-disp = updater.dispatcher
+# updater = telegram.ext.Updater(Token, use_context=True)
+
+application = ApplicationBuilder().token(Token).build()
+disp = application.dispatcher
 
 #toBeDeleted
-j = updater.job_queue
+
 
 
 
@@ -319,7 +321,7 @@ disp.add_handler(CallbackQueryHandler(album_callback, pattern='third_album'))
 
 
 disp.add_handler(telegram.ext.MessageHandler(telegram.ext.Filters.text, handle_message))
-updater.start_polling()
-updater.idle()
+application.start_polling()
+application.idle()
 
 
