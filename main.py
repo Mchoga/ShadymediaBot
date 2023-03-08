@@ -301,7 +301,7 @@ j = updater.job_queue
 
 
 
-disp.add_handler(telegram.ext.CommandHandler('album', album))
+disp.add_handler(telegram.ext.CommandHandler('album', album,run_async=True))
 # disp.add_handler(telegram.ext.CommandHandler('song',dang))
 disp.add_handler(telegram.ext.CommandHandler('song', song,run_async=True))
 disp.add_handler(telegram.ext.CommandHandler('start', start))
