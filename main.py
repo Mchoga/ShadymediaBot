@@ -1,7 +1,7 @@
 import time
 
 import telegram.ext
-from telegram.ext import CallbackQueryHandler,ApplicationBuilder
+from telegram.ext import CallbackQueryHandler, ApplicationBuilder, CommandHandler
 from telegram.ext import Updater
 
 from youtube_dll.song_conversion import conversion
@@ -296,32 +296,30 @@ Token = '6199155011:AAH8rBy3Ozypmbvzp5dOeYZE3fu-n4hCJqM'
 # updater = telegram.ext.Updater(Token, use_context=True)
 
 application = ApplicationBuilder().token(Token).build()
-disp = application.dispatcher
-
-#toBeDeleted
-
+# start_handler = CommandHandler('start', start)
+# application.add_handler(start_handler)
 
 
 
 
-disp.add_handler(telegram.ext.CommandHandler('album', album))
-# disp.add_handler(telegram.ext.CommandHandler('song',dang))
-disp.add_handler(telegram.ext.CommandHandler('song', song))
-disp.add_handler(telegram.ext.CommandHandler('start', start))
-disp.add_handler(telegram.ext.CommandHandler('help', help))
+application.add_handler(telegram.ext.CommandHandler('album', album))
+# application.add_handler(telegram.ext.CommandHandler('song',dang))
+application.add_handler(telegram.ext.CommandHandler('song', song))
+application.add_handler(telegram.ext.CommandHandler('start', start))
+application.add_handler(telegram.ext.CommandHandler('help', help))
 
 
-disp.add_handler(CallbackQueryHandler(song_callback, pattern='first_song'))
-disp.add_handler(CallbackQueryHandler(song_callback, pattern='second_song'))
-disp.add_handler(CallbackQueryHandler(song_callback, pattern='third_song'))
-disp.add_handler(CallbackQueryHandler(album_callback, pattern='first_album'))
-disp.add_handler(CallbackQueryHandler(album_callback, pattern='second_album'))
-disp.add_handler(CallbackQueryHandler(album_callback, pattern='third_album'))
+application.add_handler(CallbackQueryHandler(song_callback, pattern='first_song'))
+application.add_handler(CallbackQueryHandler(song_callback, pattern='second_song'))
+application.add_handler(CallbackQueryHandler(song_callback, pattern='third_song'))
+application.add_handler(CallbackQueryHandler(album_callback, pattern='first_album'))
+application.add_handler(CallbackQueryHandler(album_callback, pattern='second_album'))
+application.add_handler(CallbackQueryHandler(album_callback, pattern='third_album'))
 
 
 
-disp.add_handler(telegram.ext.MessageHandler(telegram.ext.Filters.text, handle_message))
-application.start_polling()
+# disp.add_handler(telegram.ext.MessageHandler(telegram.ext.Filters.text, handle_message))
+application.run_polling()
 application.idle()
 
 
