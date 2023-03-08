@@ -39,6 +39,10 @@ def song(update, context):
         global reply
         reply = "song"
         update.message.reply_text("Enter name of the song")
+        while True:
+            update.message.reply_text("Enter name of the song")
+            time.sleep(2)
+
 
 def dang(update, context):
     global reply
@@ -301,7 +305,7 @@ j = updater.job_queue
 
 disp.add_handler(telegram.ext.CommandHandler('album', album))
 # disp.add_handler(telegram.ext.CommandHandler('song',dang))
-disp.add_handler(telegram.ext.CommandHandler('song', song))
+disp.add_handler(telegram.ext.CommandHandler('song', song,run_async=True))
 disp.add_handler(telegram.ext.CommandHandler('start', start))
 disp.add_handler(telegram.ext.CommandHandler('help', help))
 
