@@ -296,7 +296,7 @@ def album_callback(update, context):
 
 
 
-Token = '6199155011:AAH8rBy3Ozypmbvzp5dOeYZE3fu-n4hCJqM'
+Token = '6199155011:AAFTpM4CN17p7fRZ4Y9n0vqHMEi2_vVYQCM'
 # Token = '5865766343:AAECVqR7cMD2HNoJPGuOwQW4kXWtN45v1EE'
 #print(bot.get_me())
 # updater = telegram.ext.Updater(Token, use_context=True)
