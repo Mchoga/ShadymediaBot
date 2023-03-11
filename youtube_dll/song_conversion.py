@@ -125,7 +125,7 @@ class conversion:
         chat_id = update.effective_chat.id
         query = update.callback_query
         path = None
-        print(self.searched_songs_results)
+
 
 
         if query.data == "first_song":
@@ -155,7 +155,7 @@ class conversion:
             song.close()
 
         while True:
-            print('Damn man')
+
             try:
                 os.remove(path)
                 print(f"Song successfully deleted: ")
@@ -186,7 +186,7 @@ class conversion:
 
             for number in self.searched_songs_results:
                 await asyncio.create_task(self.song_download(number))
-                print(self.album_downloaded_songs)
+
 
                 path = self.album_downloaded_songs[count]
                 song = open(path, "rb")
@@ -213,61 +213,57 @@ class conversion:
 
 
 
-        # elif query.data == "second_album":
-        #     song_conversion.conversion.getalbum(1)
-        #
-        #     for number in database.songs_searched_results:
-        #         conversion.song_download(number)
-        #         path = database.album_downloaded_songs[count]
-        #         song = open(path, "rb")
-        #         context.bot.send_document(chat_id, song)
-        #         song.close()
-        #         count += 1
-        #     context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[1][1])
-        #
-        #     for path in database.album_downloaded_songs:
-        #         while True:
-        #             try:
-        #                 os.remove(path)
-        #                 print(f"Song successfully deleted: ")
-        #                 break
-        #             except OSError as e:
-        #                 if e.errno != 32:  # skip if error is not related to file lock
-        #                     raise
-        #                 print("Waiting to delete song")
-        #                 time.sleep(0.1)  # wait for 100ms before trying again
-        #     database.album_downloaded_songs.clear()
-        #
-        #
-        # elif query.data == "third_album":
-        #     song_conversion.conversion.getalbum(2)
-        #
-        #     # for path in database.album_downloaded_songs:
-        #     #     song = open(path, "rb")
-        #     #     context.bot.send_document(chat_id, song)
-        #     #     song.close()
-        #
-        #     for number in database.songs_searched_results:
-        #         conversion.song_download(number)
-        #         path = database.album_downloaded_songs[count]
-        #         song = open(path, "rb")
-        #         context.bot.send_document(chat_id, song)
-        #         song.close()
-        #         count += 1
-        #     context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[2][1])
-        #     for path in database.album_downloaded_songs:
-        #         while True:
-        #             try:
-        #                 os.remove(path)
-        #                 print(f"Song successfully deleted: ")
-        #                 break
-        #             except OSError as e:
-        #                 if e.errno != 32:  # skip if error is not related to file lock
-        #                     raise
-        #                 print("Waiting to delete song")
-        #                 time.sleep(0.1)  # wait for 100ms before trying again
-        #
-        #     database.album_downloaded_songs.clear()
+        elif query.data == "second_album":
+            task = await asyncio.create_task(self.getalbum(1))
+
+            for number in self.searched_songs_results:
+                await asyncio.create_task(self.song_download(number))
+                path = self.album_downloaded_songs[count]
+                song = open(path, "rb")
+                await context.bot.send_document(chat_id, song)
+                song.close()
+                count += 1
+            await context.bot.send_message(1591024405, "I provided album: " + self.searched_albums_results[1][1])
+
+            for path in self.album_downloaded_songs:
+                while True:
+                    try:
+                        os.remove(path)
+                        print(f"Song successfully deleted: ")
+                        break
+                    except OSError as e:
+                        if e.errno != 32:  # skip if error is not related to file lock
+                            raise
+                        print("Waiting to delete song")
+                        time.sleep(0.1)  # wait for 100ms before trying again
+
+
+
+        elif query.data == "third_album":
+            task = await asyncio.create_task(self.getalbum(2))
+
+
+            for number in self.searched_songs_results:
+                await asyncio.create_task(self.song_download(number))
+                path = self.album_downloaded_songs[count]
+                song = open(path, "rb")
+                await context.bot.send_document(chat_id, song)
+                song.close()
+                count += 1
+            await context.bot.send_message(1591024405, "I provided album: " + self.searched_albums_results[2][1])
+            for path in self.album_downloaded_songs:
+                while True:
+                    try:
+                        os.remove(path)
+                        print(f"Song successfully deleted: ")
+                        break
+                    except OSError as e:
+                        if e.errno != 32:  # skip if error is not related to file lock
+                            raise
+                        print("Waiting to delete song")
+                        time.sleep(0.1)  # wait for 100ms before trying again
+
+
 
         await context.bot.send_message(chat_id, "**Enjoy** 😉")
     def getsong(self, index):
