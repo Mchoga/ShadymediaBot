@@ -26,6 +26,7 @@ from ytmusic import YTMusicapp
 
 
 
+
 import os
 #from pydub import AudioSegment
 
@@ -41,6 +42,7 @@ from mutagen.easyid3 import EasyID3
 class conversion:
     track_num = 1
     searched_songs = {}
+    searched_albums = {}
 
 
 
@@ -51,7 +53,7 @@ class conversion:
         self.music_type = music_type
         self.context = context
         self.update = update
-        print('__init__')
+
 
 
 
@@ -69,6 +71,7 @@ class conversion:
 
     async def inLineKeyboardFeedback(self):
         global searched_songs
+        global searched_albums
 
 
 
@@ -95,6 +98,22 @@ class conversion:
             await self.context.bot.send_message(chat_id=self.update.effective_chat.id,
                                            reply_markup=InlineKeyboardMarkup(buttons),
                                            text=mhinduro)
+
+        elif self.music_type == "album":
+            mhinduro = ""
+            self.searched_albums_results = await asyncio.create_task(YTMusicapp.YTmusicappclass.album_search(self.update.message.text))
+            searched_albums = self.searched_albums_results
+
+
+
+            for x in searched_albums_results:
+                mhinduro += str(x+1) +'. '+self.searched_albums_results[x][0] + " - " + self.searched_albums_results + "\n"
+
+            buttons = [[InlineKeyboardButton("1", callback_data="first_album")],
+                       [InlineKeyboardButton("2", callback_data="second_album")],
+                       [InlineKeyboardButton("3", callback_data="third_album")]]
+            self.context.bot.send_message(chat_id=self.update.effective_chat.id, reply_markup=InlineKeyboardMarkup(buttons),
+                                     text=mhinduro)
 
     async def song_callback(self,update, context):
         global searched_songs
