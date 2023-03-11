@@ -167,6 +167,8 @@ class conversion:
                 time.sleep(0.1)  # wait for 100ms before trying again
 
     async def album_callback(self,update, context):
+        global searched_albums
+        self.searched_albums_results = searched_albums
 
 
 

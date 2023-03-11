@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a88004f1-3537-4e46-96c0-789e7a7af192" name="Changes" comment=" commit">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_dll/song_conversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_dll/song_conversion.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,20 +38,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677799574568</updated>
-    </task>
-    <task id="LOCAL-00033" summary=" commit">
-      <created>1678005434196</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1678005434196</updated>
-    </task>
-    <task id="LOCAL-00034" summary=" commit">
-      <created>1678006031639</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1678006031639</updated>
     </task>
     <task id="LOCAL-00035" summary=" commit">
       <created>1678007189082</created>
@@ -382,7 +368,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678536107301</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary=" commit">
+      <created>1678536956695</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1678536956695</updated>
+    </task>
+    <task id="LOCAL-00083" summary=" commit">
+      <created>1678537154568</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1678537154568</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
