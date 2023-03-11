@@ -169,6 +169,7 @@ class conversion:
     async def album_callback(self,update, context):
         global searched_songs
         self.searched_songs_results = searched_songs
+
         # Code to handle when the album button is pressed
         chat_id = update.effective_chat.id
         query = update.callback_query
