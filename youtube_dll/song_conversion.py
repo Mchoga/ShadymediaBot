@@ -104,7 +104,7 @@ class conversion:
             path = self.getsong(0)
 
 
-            song = open(path, "rb")
+            song = await open(path, "rb")
             await context.bot.send_document(chat_id, song)
             await context.bot.send_message(chat_id, "I provided song: " + self.searched_songs_results[0][0])
             song.close()
