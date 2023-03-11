@@ -69,7 +69,7 @@ async def handle_message(update, context):
 
 
     elif bot_users[update.message.from_user.id] == 'album':
-        asyncio.create_task(conversion(update,context,application,"album").inLineKeyboardFeedback())
+        context.application.create_task(conversion(update,context,application,"album").inLineKeyboardFeedback())
 
     else:
         await update.message.reply_text("Invalid Command: Please choose a valid command")
