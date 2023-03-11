@@ -104,9 +104,8 @@ class conversion:
 
             song = open(path, "rb")
             await context.bot.send_document(chat_id, song)
-            # await context.bot.send_message(1591024405, "I provided song: " + self.searched_songs_results[0][0])
             await context.bot.send_message(chat_id, "I provided song: " + self.searched_songs_results[0][0])
-            song.close()
+            await song.close()
 
         elif query.data == "second_song":
             path = path = self.getsong(1)
@@ -124,8 +123,9 @@ class conversion:
             song.close()
 
         while True:
+            print('Damn man')
             try:
-                os.remove(path)
+                await os.remove(path)
                 print(f"Song successfully deleted: ")
                 break
             except OSError as e:
