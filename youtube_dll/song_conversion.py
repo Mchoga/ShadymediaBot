@@ -57,8 +57,8 @@ class conversion:
 
         # self.application.add_handler(telegram.ext.CommandHandler('filters', inLineKeyboardFeedback))
         self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='first_song'))
-        # self.application.add_handler(CallbackQueryHandler(song_callback, pattern='second_song'))
-        # self.application.add_handler(CallbackQueryHandler(song_callback, pattern='third_song'))
+        self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='second_song'))
+        self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='third_song'))
         # self.application.add_handler(CallbackQueryHandler(album_callback, pattern='first_album'))
         # self.application.add_handler(CallbackQueryHandler(album_callback, pattern='second_album'))
         # self.application.add_handler(CallbackQueryHandler(album_callback, pattern='third_album'))
