@@ -78,8 +78,8 @@ class conversion:
             mhinduro = ""
             # music.YTmusicappclass.song_search(update.message.text)
             # searched_songs_results = database.songs_searched_results
-            task = await asyncio.create_task(YTMusicapp.YTmusicappclass.song_search(self.update.message.text))
-            self.searched_songs_results = task
+            self.searched_songs_results = await asyncio.create_task(YTMusicapp.YTmusicappclass.song_search(self.update.message.text))
+            # self.searched_songs_results = task
             # await  self.searched_songs_results
             print(self.searched_songs_results)
 
