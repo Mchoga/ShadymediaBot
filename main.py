@@ -67,8 +67,9 @@ async def handle_message(update, context):
 
 
     if bot_users[update.message.from_user.id] == 'song':
-      context.application.create_task(conversion(update,context,application,"song").inLineKeyboardFeedback())
-
+      # context.application.create_task(conversion(update,context,application,"song").inLineKeyboardFeedback())
+        for a in range(3):
+            context.application.create_task(conversion(update, context, application, "song").inLineKeyboardFeedback())
 
     elif bot_users[update.message.from_user.id] == 'album':
         context.application.create_task(conversion(update,context,application,"album").inLineKeyboardFeedback())
