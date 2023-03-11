@@ -100,6 +100,7 @@ class conversion:
                                            text=mhinduro)
 
         elif self.music_type == "album":
+            print('album')
             mhinduro = ""
             self.searched_albums_results = await asyncio.create_task(YTMusicapp.YTmusicappclass.album_search(self.update.message.text))
             searched_albums = self.searched_albums_results

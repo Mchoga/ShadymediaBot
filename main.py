@@ -53,10 +53,8 @@ async def song(update, context):
 
 
 async def album(update, context):
-    global reply
-    reply="album"
-    
-    update.message.reply_text("Enter name of the Album")
+    bot_users[update.message.from_user.id] = 'album'
+    await update.message.reply_text("Enter name of the Album")
     
 
 
