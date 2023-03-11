@@ -53,7 +53,7 @@ class conversion:
 
 
 
-        asyncio.create_task(self.inLineKeyboardFeedback())
+        # asyncio.create_task(self.inLineKeyboardFeedback())
 
         # self.application.add_handler(telegram.ext.CommandHandler('filters', inLineKeyboardFeedback))
         self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='first_song'))
