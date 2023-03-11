@@ -110,15 +110,15 @@ class conversion:
             song.close()
 
         elif query.data == "second_song":
-            path = path = self.getsong(1)
+            path  = await asyncio.create_task(self.getsong(1))
 
 
             song = open(path, "rb")
             await context.bot.send_document(chat_id, song)
-            context.bot.send_message(1591024405, "I provided song: " + self.searched_songs_results[1][0])
+            await context.bot.send_message(1591024405, "I provided song: " + self.searched_songs_results[1][0])
             song.close()
         elif query.data == "third_song":
-            path = self.getsong(2)
+            path = await asyncio.create_task(self.getsong(2))
 
 
             song = open(path, "rb")
@@ -277,6 +277,7 @@ class conversion:
                 encoding=3, mime="image/jpeg", type=3, desc="Cover", data=albumart.read()
             )
         audio.save(v2_version=3)
+        self.searched_songs_results.clear()
 
 
 
