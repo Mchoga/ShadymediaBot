@@ -64,9 +64,9 @@ class conversion:
         self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='first_song'))
         self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='second_song'))
         self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='third_song'))
-        # self.application.add_handler(CallbackQueryHandler(album_callback, pattern='first_album'))
-        # self.application.add_handler(CallbackQueryHandler(album_callback, pattern='second_album'))
-        # self.application.add_handler(CallbackQueryHandler(album_callback, pattern='third_album'))
+        self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='first_album'))
+        self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='second_album'))
+        self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='third_album'))
 
 
     async def inLineKeyboardFeedback(self):
@@ -101,20 +101,21 @@ class conversion:
                                            text=mhinduro)
 
         elif self.music_type == "album":
-            print('album')
+
             mhinduro = ""
             self.searched_albums_results = await asyncio.create_task(YTMusicapp.YTmusicappclass.album_search(self.update.message.text))
             searched_albums = self.searched_albums_results
 
 
 
+
             for x in self.searched_albums_results:
-                mhinduro += str(x+1) +'. '+self.searched_albums_results[x][0] + " - " + self.searched_albums_results + "\n"
+                mhinduro += str(x+1) +'. '+self.searched_albums_results[x][0] + " - " + self.searched_albums_results[x][1] + "\n"
 
             buttons = [[InlineKeyboardButton("1", callback_data="first_album")],
                        [InlineKeyboardButton("2", callback_data="second_album")],
                        [InlineKeyboardButton("3", callback_data="third_album")]]
-            self.context.bot.send_message(chat_id=self.update.effective_chat.id, reply_markup=InlineKeyboardMarkup(buttons),
+            await self.context.bot.send_message(chat_id=self.update.effective_chat.id, reply_markup=InlineKeyboardMarkup(buttons),
                                      text=mhinduro)
 
     async def song_callback(self,update, context):
@@ -191,10 +192,11 @@ class conversion:
 
 
 
-    def getalbum(index):
+    async def getalbum(self,index):
+        self.album_downloaded_songs = {}
         link = 'https://music.youtube.com/playlist?list='
         count = 0
-        album_detailed_info =YTMusicapp.yt.get_album(database.albums_searched_results[index][3])
+        album_detailed_info =await asyncio.create_task(YTMusicapp.yt.get_album(self.searched_albums_results[index][3]))
         albumID = album_detailed_info['audioPlaylistId']
         album_link = link+albumID
         songs = {}
@@ -206,15 +208,15 @@ class conversion:
 
 
 
-            a =YTMusicapp.yt.get_song(single_song.video_id)
+            a = await asyncio.create_task(YTMusicapp.yt.get_song(single_song.video_id))
             title = a['videoDetails']['title']
 
 
 
             #songs[count] = [title,album_detailed_info['artists'][0]['name'],[2000],album_detailed_info['thumbnails'][-1]['url']],[single_song.video_id]
-            songs[count] = [title,database.albums_searched_results[index][1], album_detailed_info['artists'][0]['name'], 2000, single_song.video_id,album_detailed_info['thumbnails'][-1]['url']]
+            songs[count] = [title,self.searched_albums_results[index][1], album_detailed_info['artists'][0]['name'], 2000, single_song.video_id,album_detailed_info['thumbnails'][-1]['url']]
             count+=1
-        database.songs_searched_results = songs
+        self.searched_songs_results = songs
         # for num in songs:
         #     conversion.song_download(num)
 
@@ -259,7 +261,7 @@ class conversion:
             os.replace(audio_file, database.songs_root_location + "/" + yt.title + ".mp3")
             # os.replace(audio_file, database.songs_root_location+"\\"+yt.title+".mp3")
             audio_file = database.songs_root_location + "/" + yt.title + ".mp3"
-            # database.album_downloaded_songs.append(audio_file)
+            self.album_downloaded_songs.append(audio_file)
             self.song_tagging(audio_file, index)
             return audio_file
         except Exception as e:
