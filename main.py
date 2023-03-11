@@ -32,7 +32,8 @@ my_chat_ID =  1591024405
 
 
 
-def start(update, context):
+async def start(update, context):
+
 
     await update.message.reply_text("Hello "+update.effective_chat.first_name+"!"+". My name is Morris, How can i help you today")
 
