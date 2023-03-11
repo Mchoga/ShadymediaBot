@@ -204,7 +204,7 @@ class conversion:
 
     def song_download(self,index):
 
-
+        print(self.searched_songs_results)
 
         print('Starting song download for '+self.searched_songs_results[index][0])
         link = 'https://music.youtube.com/watch?v='+self.searched_songs_results[index][4]
