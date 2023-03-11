@@ -277,7 +277,7 @@ class conversion:
                 encoding=3, mime="image/jpeg", type=3, desc="Cover", data=albumart.read()
             )
         audio.save(v2_version=3)
-        self.searched_songs_results.clear()
+
 
 
 

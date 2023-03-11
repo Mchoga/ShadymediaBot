@@ -1,3 +1,4 @@
+import asyncio
 import time
 
 import telegram.ext
@@ -66,7 +67,7 @@ async def handle_message(update, context):
 
 
     if bot_users[update.message.from_user.id] == 'song':
-        application.create_task(conversion(update,context,application,"song").inLineKeyboardFeedback())
+      asyncio.create_task(conversion(update,context,application,"song").inLineKeyboardFeedback())
 
 
     elif bot_users[update.message.from_user.id] == 'album':
