@@ -181,114 +181,114 @@ async def handle_message(update, context):
 #             time.sleep(0.1)  # wait for 100ms before trying again
 
 
-def album_callback(update, context):
-    global my_chat_ID
-    # Code to handle when the album button is pressed
-    chat_id = update.effective_chat.id
-    query = update.callback_query
-    path = None
-    print("Album downloading...")
-    songs = database.album_downloaded_songs
-    count = 0;
-
-
-    if query.data =="first_album":
-
-        song_conversion.conversion.getalbum(0)
-
-
-
-    
-
-        for number in database.songs_searched_results:
-            conversion.song_download(number)
-            path =database.album_downloaded_songs[count]
-            song = open(path, "rb")
-            context.bot.send_document(chat_id, song)
-
-
-            song.close()
-            count+=1
-
-        context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[0][1])
-
-
-        for path in database.album_downloaded_songs:
-            while True:
-                try:
-                    os.remove(path)
-                    print(f"Song successfully deleted: ")
-                    break
-                except OSError as e:
-                    if e.errno != 32:  # skip if error is not related to file lock
-                        raise
-                    print("Waiting to delete song")
-                    time.sleep(0.1)  # wait for 100ms before trying again
-        database.album_downloaded_songs.clear()
-
-
-
-
-    elif query.data =="second_album":
-        song_conversion.conversion.getalbum(1)
-
-       
-
-        for number in database.songs_searched_results:
-            conversion.song_download(number)
-            path =database.album_downloaded_songs[count]
-            song = open(path, "rb")
-            context.bot.send_document(chat_id, song)
-            song.close()
-            count+=1
-        context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[1][1])
-
-
-        for path in database.album_downloaded_songs:
-            while True:
-                try:
-                    os.remove(path)
-                    print(f"Song successfully deleted: ")
-                    break
-                except OSError as e:
-                    if e.errno != 32:  # skip if error is not related to file lock
-                        raise
-                    print("Waiting to delete song")
-                    time.sleep(0.1)  # wait for 100ms before trying again
-        database.album_downloaded_songs.clear()
-
-
-    elif query.data == "third_album":
-        song_conversion.conversion.getalbum(2)
-
-        # for path in database.album_downloaded_songs:
-        #     song = open(path, "rb")
-        #     context.bot.send_document(chat_id, song)
-        #     song.close()
-
-        for number in database.songs_searched_results:
-            conversion.song_download(number)
-            path =database.album_downloaded_songs[count]
-            song = open(path, "rb")
-            context.bot.send_document(chat_id, song)
-            song.close()
-            count+=1
-        context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[2][1])
-        for path in database.album_downloaded_songs:
-            while True:
-                try:
-                    os.remove(path)
-                    print(f"Song successfully deleted: ")
-                    break
-                except OSError as e:
-                    if e.errno != 32:  # skip if error is not related to file lock
-                        raise
-                    print("Waiting to delete song")
-                    time.sleep(0.1)  # wait for 100ms before trying again
-
-        database.album_downloaded_songs.clear()
-
-    context.bot.send_message(chat_id,"**Enjoy** 😉")
+# def album_callback(update, context):
+#     global my_chat_ID
+#     # Code to handle when the album button is pressed
+#     chat_id = update.effective_chat.id
+#     query = update.callback_query
+#     path = None
+#     print("Album downloading...")
+#     songs = database.album_downloaded_songs
+#     count = 0;
+#
+#
+#     if query.data =="first_album":
+#
+#         song_conversion.conversion.getalbum(0)
+#
+#
+#
+#
+#
+#         for number in database.songs_searched_results:
+#             conversion.song_download(number)
+#             path =database.album_downloaded_songs[count]
+#             song = open(path, "rb")
+#             context.bot.send_document(chat_id, song)
+#
+#
+#             song.close()
+#             count+=1
+#
+#         context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[0][1])
+#
+#
+#         for path in database.album_downloaded_songs:
+#             while True:
+#                 try:
+#                     os.remove(path)
+#                     print(f"Song successfully deleted: ")
+#                     break
+#                 except OSError as e:
+#                     if e.errno != 32:  # skip if error is not related to file lock
+#                         raise
+#                     print("Waiting to delete song")
+#                     time.sleep(0.1)  # wait for 100ms before trying again
+#         database.album_downloaded_songs.clear()
+#
+#
+#
+#
+#     elif query.data =="second_album":
+#         song_conversion.conversion.getalbum(1)
+#
+#
+#
+#         for number in database.songs_searched_results:
+#             conversion.song_download(number)
+#             path =database.album_downloaded_songs[count]
+#             song = open(path, "rb")
+#             context.bot.send_document(chat_id, song)
+#             song.close()
+#             count+=1
+#         context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[1][1])
+#
+#
+#         for path in database.album_downloaded_songs:
+#             while True:
+#                 try:
+#                     os.remove(path)
+#                     print(f"Song successfully deleted: ")
+#                     break
+#                 except OSError as e:
+#                     if e.errno != 32:  # skip if error is not related to file lock
+#                         raise
+#                     print("Waiting to delete song")
+#                     time.sleep(0.1)  # wait for 100ms before trying again
+#         database.album_downloaded_songs.clear()
+#
+#
+#     elif query.data == "third_album":
+#         song_conversion.conversion.getalbum(2)
+#
+#         # for path in database.album_downloaded_songs:
+#         #     song = open(path, "rb")
+#         #     context.bot.send_document(chat_id, song)
+#         #     song.close()
+#
+#         for number in database.songs_searched_results:
+#             conversion.song_download(number)
+#             path =database.album_downloaded_songs[count]
+#             song = open(path, "rb")
+#             context.bot.send_document(chat_id, song)
+#             song.close()
+#             count+=1
+#         context.bot.send_message(my_chat_ID, "I provided album: " + database.albums_searched_results[2][1])
+#         for path in database.album_downloaded_songs:
+#             while True:
+#                 try:
+#                     os.remove(path)
+#                     print(f"Song successfully deleted: ")
+#                     break
+#                 except OSError as e:
+#                     if e.errno != 32:  # skip if error is not related to file lock
+#                         raise
+#                     print("Waiting to delete song")
+#                     time.sleep(0.1)  # wait for 100ms before trying again
+#
+#         database.album_downloaded_songs.clear()
+#
+#     context.bot.send_message(chat_id,"**Enjoy** 😉")
 
 
 
