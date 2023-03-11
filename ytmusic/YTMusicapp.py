@@ -4,6 +4,8 @@ Created on Sun Feb 19 17:18:10 2023
 
 @author: EMINEM
 """
+import asyncio
+
 import requests
 from pytube import YouTube
 from ytmusicapi.parsers import browsing
@@ -29,11 +31,13 @@ class YTmusicappclass():
 
         
 
-    def song_search(song_name):
+    async def song_search(song_name):
         songs = {}
         count = 0
         print("Searching for song... "+song_name)
         results = yt.search(song_name, filter="songs")
+
+
         
         for x in results[0:3]:
 
