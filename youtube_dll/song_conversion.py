@@ -185,7 +185,9 @@ class conversion:
             task = await asyncio.create_task(self.getalbum(0))
 
             for number in self.searched_songs_results:
-                self.song_download(number)
+                await asyncio.create_task(self.song_download(number))
+                print(self.album_downloaded_songs)
+
                 path = self.album_downloaded_songs[count]
                 song = open(path, "rb")
                 await context.bot.send_document(chat_id, song)
