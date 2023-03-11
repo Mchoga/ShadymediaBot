@@ -112,14 +112,14 @@ class conversion:
 
             song = open(path, "rb")
             await context.bot.send_document(chat_id, song)
-            context.bot.send_message(1591024405, "I provided song: " +  self.searched_songs_results[1][0])
+            context.bot.send_message(1591024405, "I provided song: " + self.searched_songs_results[1][0])
             song.close()
         elif query.data == "third_song":
             path = self.getsong(2)
 
             song = open(path, "rb")
             context.bot.send_document(chat_id, song)
-            context.bot.send_message(1591024405, "I provided song: " + database.songs_searched_results[2][0])
+            context.bot.send_message(1591024405, "I provided song: " + self.searched_songs_results[2][0])
             song.close()
 
         while True:

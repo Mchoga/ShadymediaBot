@@ -331,6 +331,6 @@ application.add_handler(telegram.ext.MessageHandler(filters.TEXT & (~filters.COM
 
 # disp.add_handler(telegram.ext.MessageHandler(telegram.ext.Filters.text, handle_message))
 application.run_polling()
-application.idle()
+
 
 
