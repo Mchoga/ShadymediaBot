@@ -351,7 +351,7 @@ class conversion:
             return audio_file
         except Exception as e:
             print(f"An error occured: {e}")
-            self.song_download(index)
+            await asyncio.create_taskself.song_download(index)
 
 
 
