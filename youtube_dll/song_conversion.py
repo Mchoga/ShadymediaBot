@@ -53,6 +53,7 @@ class conversion:
 
 
 
+
         # asyncio.create_task(self.inLineKeyboardFeedback())
 
         # self.application.add_handler(telegram.ext.CommandHandler('filters', inLineKeyboardFeedback))
@@ -65,7 +66,8 @@ class conversion:
 
 
     async def inLineKeyboardFeedback(self):
-        global track_num
+
+
 
 
 
@@ -102,6 +104,7 @@ class conversion:
         if query.data == "first_song":
             path = self.getsong(0)
 
+
             song = open(path, "rb")
             await context.bot.send_document(chat_id, song)
             await context.bot.send_message(chat_id, "I provided song: " + self.searched_songs_results[0][0])
@@ -110,12 +113,14 @@ class conversion:
         elif query.data == "second_song":
             path = path = self.getsong(1)
 
+
             song = open(path, "rb")
             await context.bot.send_document(chat_id, song)
             context.bot.send_message(1591024405, "I provided song: " + self.searched_songs_results[1][0])
             song.close()
         elif query.data == "third_song":
             path = self.getsong(2)
+
 
             song = open(path, "rb")
             context.bot.send_document(chat_id, song)
@@ -247,7 +252,7 @@ class conversion:
 
 
     def song_tagging(self,filename,index):
-        track_num = 1
+
 
         artwork_url = self.searched_songs_results[index][5]
         artwork_data = requests.get(artwork_url).content
@@ -259,9 +264,9 @@ class conversion:
         mp3file["album"] = self.searched_songs_results[index][1]
         mp3file["title"] = self.searched_songs_results[index][0]
         mp3file["website"] = 't.me/mchoga'
-        mp3file["tracknumber"] = str(track_num)
+        mp3file["tracknumber"] = str(self.track_num)
         mp3file.save()
-        track_num+=1
+        self.track_num+=1
 
         audio = ID3(filename)
         audio.save(v2_version=3)
