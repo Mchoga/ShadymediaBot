@@ -1,5 +1,5 @@
-songs_searched_results = {}
-albums_searched_results = {}
-album_downloaded_songs = []
+# songs_searched_results = {}
+# albums_searched_results = {}
+# album_downloaded_songs = []
 songs_root_location = ""
-track_num = 1
+# track_num = 1

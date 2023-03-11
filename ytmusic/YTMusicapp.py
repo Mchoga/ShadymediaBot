@@ -59,8 +59,9 @@ class YTmusicappclass():
             count += 1
             
 
-        database.songs_searched_results = songs
-       
+        return songs
+        # database.songs_searched_results = songs
+
        
     def album_search(album_name):
         count = 0
