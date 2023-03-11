@@ -167,8 +167,10 @@ class conversion:
                 time.sleep(0.1)  # wait for 100ms before trying again
 
     async def album_callback(self,update, context):
-        global searched_songs
-        self.searched_songs_results = searched_songs
+        searched_songs_results = self.searched_songs_results
+
+
+
 
         # Code to handle when the album button is pressed
         chat_id = update.effective_chat.id
