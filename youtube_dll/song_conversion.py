@@ -167,7 +167,7 @@ class conversion:
                 time.sleep(0.1)  # wait for 100ms before trying again
 
     async def album_callback(self,update, context):
-        searched_songs_results = self.searched_songs_results
+
 
 
 
@@ -182,7 +182,7 @@ class conversion:
 
         if query.data == "first_album":
 
-            self.getalbum(0)
+            task = await asyncio.create_task(self.getalbum(0))
 
             for number in self.searched_songs_results:
                 self.song_download(number)
@@ -270,6 +270,7 @@ class conversion:
         await context.bot.send_message(chat_id, "**Enjoy** 😉")
     def getsong(self, index):
 
+
         return (self.song_download(index))
 
 
@@ -280,7 +281,7 @@ class conversion:
         self.album_downloaded_songs = {}
         link = 'https://music.youtube.com/playlist?list='
         count = 0
-        album_detailed_info =await asyncio.create_task(YTMusicapp.yt.get_album(self.searched_albums_results[index][3]))
+        album_detailed_info = YTMusicapp.yt.get_album(self.searched_albums_results[index][3])
         albumID = album_detailed_info['audioPlaylistId']
         album_link = link+albumID
         songs = {}
@@ -292,7 +293,7 @@ class conversion:
 
 
 
-            a = await asyncio.create_task(YTMusicapp.yt.get_song(single_song.video_id))
+            a = YTMusicapp.yt.get_song(single_song.video_id)
             title = a['videoDetails']['title']
 
 
