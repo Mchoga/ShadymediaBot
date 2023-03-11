@@ -72,7 +72,7 @@ async def handle_message(update, context):
 
     elif bot_users[update.message.from_user.id] == 'album':
         # context.application.create_task(conversion(update,context,application,"album").inLineKeyboardFeedback())
-        thread1 = threading.Thread(target=asyncio.run(conversion(update,context,application,"album").inLineKeyboardFeedback()))
+        thread1 = threading.Thread(target=asyncio.create_task(conversion(update,context,application,"album").inLineKeyboardFeedback()))
         thread1.start()
 
     else:
