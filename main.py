@@ -59,7 +59,8 @@ async def album(update, context):
     
 
 
-def help(update,context):
+async def help(update,context):
+
     await update.message.reply_text("Choose any of the commands availavble to search and download a song or album")
 
 async def handle_message(update, context):
