@@ -73,7 +73,7 @@ async def handle_message(update, context):
     elif bot_users[update.message.from_user.id] == 'album':
         # context.application.create_task(conversion(update,context,application,"album").inLineKeyboardFeedback())
         thread1 = threading.Thread(target=conversion(update,context,application,"album").inLineKeyboardFeedback())
-        thread1.join()
+        thread1.start()
 
     else:
         await update.message.reply_text("Invalid Command: Please choose a valid command")
