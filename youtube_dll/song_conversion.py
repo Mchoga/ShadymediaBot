@@ -40,6 +40,7 @@ from mutagen.easyid3 import EasyID3
 
 class conversion:
     track_num = 1
+    searched_songs = {}
 
 
 
@@ -50,6 +51,7 @@ class conversion:
         self.music_type = music_type
         self.context = context
         self.update = update
+        print('__init__')
 
 
 
@@ -66,6 +68,7 @@ class conversion:
 
 
     async def inLineKeyboardFeedback(self):
+        global searched_songs
 
 
 
@@ -79,7 +82,7 @@ class conversion:
             # music.YTmusicappclass.song_search(update.message.text)
             # searched_songs_results = database.songs_searched_results
             self.searched_songs_results = await asyncio.create_task(YTMusicapp.YTmusicappclass.song_search(self.update.message.text))
-            print(self.searched_songs_results)
+            searched_songs = self.searched_songs_results
 
             for x in self.searched_songs_results:
                 mhinduro += str(x + 1) + '. ' + self.searched_songs_results[x][2] + " - " + self.searched_songs_results[x][
@@ -94,10 +97,13 @@ class conversion:
                                            text=mhinduro)
 
     async def song_callback(self,update, context):
+        global searched_songs
+        self.searched_songs_results = searched_songs
         print("Processing...")
         chat_id = update.effective_chat.id
         query = update.callback_query
         path = None
+        print(self.searched_songs_results)
 
 
         if query.data == "first_song":
