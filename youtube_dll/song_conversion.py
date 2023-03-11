@@ -101,10 +101,10 @@ class conversion:
 
 
         if query.data == "first_song":
-            path = self.getsong(0)
+            path = await asyncio.create_task(self.getsong(0))
 
 
-            song = await open(path, "rb")
+            song = open(path, "rb")
             await context.bot.send_document(chat_id, song)
             await context.bot.send_message(chat_id, "I provided song: " + self.searched_songs_results[0][0])
             song.close()
