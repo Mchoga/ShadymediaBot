@@ -77,9 +77,8 @@ class conversion:
 
             mhinduro = ""
             # music.YTmusicappclass.song_search(update.message.text)
-            reply = "song_search_results"
             # searched_songs_results = database.songs_searched_results
-            self.searched_songs_results = YTMusicapp.YTmusicappclass.song_search(self.update.message.text)
+            self.searched_songs_results = await YTMusicapp.YTmusicappclass.song_search(self.update.message.text)
 
 
             for x in self.searched_songs_results:
