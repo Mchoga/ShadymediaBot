@@ -106,7 +106,7 @@ class conversion:
 
 
 
-            for x in searched_albums_results:
+            for x in self.searched_albums_results:
                 mhinduro += str(x+1) +'. '+self.searched_albums_results[x][0] + " - " + self.searched_albums_results + "\n"
 
             buttons = [[InlineKeyboardButton("1", callback_data="first_album")],

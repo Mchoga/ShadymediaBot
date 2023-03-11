@@ -52,7 +52,7 @@ async def song(update, context):
 
 
 
-def album(update, context):
+async def album(update, context):
     global reply
     reply="album"
     
