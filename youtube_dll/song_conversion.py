@@ -46,7 +46,7 @@ class conversion:
         self.track_num=1
 
 
-    def getsong(index,instance_song_results):
+    async def getsong(index,instance_song_results):
 
 
         return (conversion.song_download(index,instance_song_results))
