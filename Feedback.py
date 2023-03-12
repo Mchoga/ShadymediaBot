@@ -122,7 +122,7 @@ class Feedback:
             await context.bot.send_message(1591024405, "I provided song: " + instance_song_results[1][0])
             song.close()
         elif query.data == "third_song":
-            path = await asyncio.create_task(self.getsong(2))
+            path = await asyncio.create_task(conversion.getsong(2,instance_song_results))
 
 
             song = open(path, "rb")
