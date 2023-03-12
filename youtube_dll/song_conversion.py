@@ -74,7 +74,7 @@ class conversion:
 
     async def inLineKeyboardFeedback(self):
         global searched_songs
-        global searched_albums
+        # global searched_albums
 
 
 
@@ -170,8 +170,8 @@ class conversion:
                 time.sleep(0.1)  # wait for 100ms before trying again
 
     async def album_callback(self,update, context):
-        global searched_albums
-        self.searched_albums_results = searched_albums
+        # global searched_albums
+        self.searched_albums_results = self.searched_albums
 
 
 
