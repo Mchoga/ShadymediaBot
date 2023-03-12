@@ -64,12 +64,12 @@ class conversion:
         # asyncio.create_task(self.inLineKeyboardFeedback())
 
         # self.application.add_handler(telegram.ext.CommandHandler('filters', inLineKeyboardFeedback))
-        self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='first_song'))
-        self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='second_song'))
-        self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='third_song'))
-        self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='first_album'))
-        self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='second_album'))
-        self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='third_album'))
+        self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='first_song',block=False))
+        self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='second_song',block=False))
+        self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='third_song',block=False))
+        self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='first_album',block=False))
+        self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='second_album',block=False))
+        self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='third_album',block=False))
 
 
     async def inLineKeyboardFeedback(self):

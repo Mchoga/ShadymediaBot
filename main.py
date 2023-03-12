@@ -69,15 +69,24 @@ async def handle_message(update, context):
 
 
     if bot_users[update.message.from_user.id] == 'song':
-        x = conversion(update,context,application,"song")
-        context.application.create_task(x.inLineKeyboardFeedback())
 
-        # context.application.create_task(conversion(update,context,application,"song").inLineKeyboardFeedback())
+
+        # x = conversion(update,context,application,"song")
+        # context.application.create_task(x.inLineKeyboardFeedback())
+
+        context.application.create_task(conversion(update,context,application,"song").inLineKeyboardFeedback())
 
     elif bot_users[update.message.from_user.id] == 'album':
-        # context.application.create_task(conversion(update,context,application,"album").inLineKeyboardFeedback())
-        y = conversion(update,context,application,"album")
-        context.application.create_task(y.inLineKeyboardFeedback())
+        context.application.create_task(conversion(update,context,application,"album").inLineKeyboardFeedback())
+
+        # for x in range(50):
+        #     await context.bot.send_message(chat_id=1591024405, text=str(x))
+        #     await asyncio.sleep(2)
+
+
+
+        # y = conversion(update,context,application,"album")
+        # context.application.create_task(y.inLineKeyboardFeedback())
 
 
 
@@ -99,12 +108,12 @@ application = ApplicationBuilder().token(Token).build()
 
 
 
-application.add_handler(telegram.ext.CommandHandler('album', album))
+application.add_handler(telegram.ext.CommandHandler('album', album,block=False))
 # application.add_handler(telegram.ext.CommandHandler('song',dang))
-application.add_handler(telegram.ext.CommandHandler('song', song))
-application.add_handler(telegram.ext.CommandHandler('start', start))
-application.add_handler(telegram.ext.CommandHandler('help', help))
-application.add_handler(telegram.ext.MessageHandler(filters.TEXT & (~filters.COMMAND),handle_message))
+application.add_handler(telegram.ext.CommandHandler('song', song,block=False))
+application.add_handler(telegram.ext.CommandHandler('start', start,block=False))
+application.add_handler(telegram.ext.CommandHandler('help', help,block=False))
+application.add_handler(telegram.ext.MessageHandler(filters.TEXT & (~filters.COMMAND),handle_message,block=False))
 
 
 
