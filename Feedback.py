@@ -49,7 +49,6 @@ class Feedback:
 
         if self.music_type == "song":
 
-            await self.context.bot.send_message(chat_id=self.update.effective_chat.id,text=self.searched_songs_results)
             mhinduro = ""
 
             self.searched_songs_results = YTMusicapp.YTmusicappclass.song_search(self.update.message.text) #Changes new object
@@ -108,18 +107,19 @@ class Feedback:
             path = await asyncio.create_task(conversion.getsong(0,instance_song_results))
 
 
+
             song = open(path, "rb")
             await context.bot.send_document(chat_id, song)
             await context.bot.send_message(chat_id, "I provided song: " + instance_song_results[0][0])
             song.close()
 
         elif query.data == "second_song":
-            path  = await asyncio.create_task(self.getsong(1))
+            path  = await asyncio.create_task(conversion.getsong(1,instance_song_results))
 
 
             song = open(path, "rb")
             await context.bot.send_document(chat_id, song)
-            await context.bot.send_message(1591024405, "I provided song: " + self.searched_songs_results[1][0])
+            await context.bot.send_message(1591024405, "I provided song: " + instance_song_results[1][0])
             song.close()
         elif query.data == "third_song":
             path = await asyncio.create_task(self.getsong(2))
@@ -127,7 +127,7 @@ class Feedback:
 
             song = open(path, "rb")
             await context.bot.send_document(chat_id, song)
-            await context.bot.send_message(1591024405, "I provided song: " + self.searched_songs_results[2][0])
+            await context.bot.send_message(1591024405, "I provided song: " + instance_song_results[2][0])
             song.close()
 
         while True:
@@ -194,7 +194,6 @@ class Feedback:
             instance_song_results = await asyncio.create_task(conversion.getalbum(1,albums))
 
             for number in instance_song_results:
-                await asyncio.create_task(self.song_download(number))
                 track = await asyncio.create_task(conversion.song_download(number, instance_song_results))
                 final_album.append(track)
                 path = track

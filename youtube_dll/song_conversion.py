@@ -49,7 +49,7 @@ class conversion:
     async def getsong(index,instance_song_results):
 
 
-        return (conversion.song_download(index,instance_song_results))
+        return (await conversion.song_download(index,instance_song_results))
 
 
 
