@@ -60,7 +60,8 @@ async def handle_message(update, context):
 
 
     if bot_users[update.message.from_user.id] == 'song':
-        a = Feedback(update, context, application, "song")
+        x = Feedback(update, context, application, "song")
+        asyncio.create_task(x.inLineKeyboardFeedback())
 
 
         # asyncio.create_task(a.inLineKeyboardFeedback())
