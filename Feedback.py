@@ -259,6 +259,7 @@ class Feedback:
                 final_album.append(track)
                 path = track
 
+
                 while True:
                     try:
                         song = open(path, "rb")
