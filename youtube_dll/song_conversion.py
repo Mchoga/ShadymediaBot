@@ -51,7 +51,6 @@ class conversion:
     def __init__(self,update,context,application,music_type):
         self.album_downloaded_songs = []
 
-
         self.application = application
         self.music_type = music_type
         self.context = context
