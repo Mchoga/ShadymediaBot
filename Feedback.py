@@ -74,12 +74,6 @@ class Feedback:
             self.searched_albums_results = YTMusicapp.YTmusicappclass.album_search(self.update.message.text)
 
 
-
-
-
-
-
-
             for x in self.searched_albums_results:
                 mhinduro += str(x+1) +'. '+self.searched_albums_results[x][0] + " - " + self.searched_albums_results[x][1] + "\n"
 
