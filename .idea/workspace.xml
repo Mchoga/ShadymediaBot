@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a88004f1-3537-4e46-96c0-789e7a7af192" name="Changes" comment=" commit" />
+    <list default="true" id="a88004f1-3537-4e46-96c0-789e7a7af192" name="Changes" comment=" commit">
+      <change afterPath="$PROJECT_DIR$/Feedback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled1.py" beforeDir="false" afterPath="$PROJECT_DIR$/untitled1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtube_dll/song_conversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_dll/song_conversion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ytmusic/YTMusicapp.py" beforeDir="false" afterPath="$PROJECT_DIR$/ytmusic/YTMusicapp.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,12 +29,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ShowUsagesActions.previewPropertyKey": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -36,20 +44,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677799574568</updated>
-    </task>
-    <task id="LOCAL-00050" summary=" commit">
-      <created>1678516750100</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1678516750101</updated>
-    </task>
-    <task id="LOCAL-00051" summary=" commit">
-      <created>1678516761564</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1678516761564</updated>
     </task>
     <task id="LOCAL-00052" summary=" commit">
       <created>1678517080520</created>
@@ -380,7 +374,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678618024008</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary=" commit">
+      <created>1678618745563</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1678618745563</updated>
+    </task>
+    <task id="LOCAL-00100" summary=" commit">
+      <created>1678618911822</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1678618911822</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

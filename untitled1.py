@@ -3,10 +3,7 @@ import asyncio
 
 
 
-class test:
+u = {'s':1}
 
-    a = 5
-    def num(self,num):
-        print(num+self.5)
-
+print(u['s'])
 

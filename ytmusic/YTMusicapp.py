@@ -31,7 +31,7 @@ class YTmusicappclass():
 
         
 
-    async def song_search(song_name):
+    def song_search(song_name):
         songs = {}
         count = 0
         print("Searching for song... "+song_name)
@@ -67,7 +67,7 @@ class YTmusicappclass():
         # database.songs_searched_results = songs
 
        
-    async def album_search(album_name):
+    def album_search(album_name):
         count = 0
         albums = {}
         print("Searching for album... "+album_name)
