@@ -35,12 +35,12 @@ class Feedback:
         self.update = update
         instance = self
 
-        # self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='first_song',block=False))
-        # self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='second_song',block=False))
-        # self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='third_song',block=False))
+        self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='first_song',block=False))
+        self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='second_song',block=False))
+        self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='third_song',block=False))
         self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='first_album', block=False))
-        # self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='second_album',block=False))
-        # self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='third_album',block=False))
+        self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='second_album',block=False))
+        self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='third_album',block=False))
 
     async def inLineKeyboardFeedback(self):
 
@@ -90,6 +90,57 @@ class Feedback:
             await self.context.bot.send_message(chat_id=self.update.effective_chat.id, reply_markup=InlineKeyboardMarkup(buttons),
                                      text=mhinduro)
 
+
+
+
+    async def song_callback(self,update, context):
+
+        instance_song_results = Feedback.user_instances[update.callback_query.from_user.id].searched_songs_results
+        print("Processing...")
+        chat_id = update.effective_chat.id
+        query = update.callback_query
+        path = None
+
+
+
+
+        if query.data == "first_song":
+            path = await asyncio.create_task(conversion.getsong(0,instance_song_results))
+
+
+            song = open(path, "rb")
+            await context.bot.send_document(chat_id, song)
+            await context.bot.send_message(chat_id, "I provided song: " + instance_song_results[0][0])
+            song.close()
+
+        elif query.data == "second_song":
+            path  = await asyncio.create_task(self.getsong(1))
+
+
+            song = open(path, "rb")
+            await context.bot.send_document(chat_id, song)
+            await context.bot.send_message(1591024405, "I provided song: " + self.searched_songs_results[1][0])
+            song.close()
+        elif query.data == "third_song":
+            path = await asyncio.create_task(self.getsong(2))
+
+
+            song = open(path, "rb")
+            await context.bot.send_document(chat_id, song)
+            await context.bot.send_message(1591024405, "I provided song: " + self.searched_songs_results[2][0])
+            song.close()
+
+        while True:
+
+            try:
+                os.remove(path)
+                print(f"Song successfully deleted: ")
+                break
+            except OSError as e:
+                if e.errno != 32:  # skip if error is not related to file lock
+                    raise
+                print("Waiting to delete song")
+                time.sleep(0.1)  # wait for 100ms before trying again
 
     async def album_callback(self,update, context):
         final_album = []
