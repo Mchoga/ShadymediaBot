@@ -85,7 +85,6 @@ class Feedback:
 
 
 
-
     async def song_callback(self,update, context):
 
         instance_song_results = Feedback.user_instances[update.callback_query.from_user.id].searched_songs_results
