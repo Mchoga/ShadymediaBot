@@ -111,7 +111,8 @@ class Feedback:
                     song = open(path, "rb")
                     break
                 except TypeError as e:
-                    print("An error Occured " + e)
+                    print("An error Occured " + str(e))
+                    time.sleep(0.1)
 
 
 
@@ -141,7 +142,8 @@ class Feedback:
                     song = open(path, "rb")
                     break
                 except TypeError as e:
-                    print("An error Occured " + e)
+                    print("An error Occured " + str(e))
+                    time.sleep(0.1)
 
 
             await context.bot.send_document(chat_id, song)
@@ -190,7 +192,8 @@ class Feedback:
                         song = open(path, "rb")
                         break
                     except TypeError as e:
-                        print("An error Occured " + e)
+                        print("An error Occured " + str(e))
+                        time.sleep(0.1)
 
                 await context.bot.send_document(chat_id, song)
 
@@ -228,7 +231,8 @@ class Feedback:
                         song = open(path, "rb")
                         break
                     except TypeError as e:
-                        print("An error Occured " + e)
+                        print("An error Occured " + str(e))
+                        time.sleep(0.1)
 
 
                 await context.bot.send_document(chat_id, song)
@@ -265,7 +269,8 @@ class Feedback:
                         song = open(path, "rb")
                         break
                     except TypeError as e:
-                        print("An error Occured " + e)
+                        print("An error Occured " + str(e))
+                        time.sleep(0.1)
 
                 await context.bot.send_document(chat_id, song)
                 song.close()
