@@ -106,9 +106,15 @@ class Feedback:
         if query.data == "first_song":
             path = await asyncio.create_task(conversion.getsong(0,instance_song_results))
 
+            while True:
+                try:
+                    song = open(path, "rb")
+                    break
+                except TypeError as e:
+                    print("An error Occured " + e)
 
 
-            song = open(path, "rb")
+
             await context.bot.send_document(chat_id, song)
             await context.bot.send_message(chat_id, "I provided song: " + instance_song_results[0][0])
             song.close()
@@ -116,16 +122,28 @@ class Feedback:
         elif query.data == "second_song":
             path  = await asyncio.create_task(conversion.getsong(1,instance_song_results))
 
+            while True:
+                try:
+                    song = open(path, "rb")
+                    break
+                except TypeError as e:
+                    print("An error Occured " + e)
 
-            song = open(path, "rb")
             await context.bot.send_document(chat_id, song)
             await context.bot.send_message(1591024405, "I provided song: " + instance_song_results[1][0])
             song.close()
+
         elif query.data == "third_song":
             path = await asyncio.create_task(conversion.getsong(2,instance_song_results))
 
+            while True:
+                try:
+                    song = open(path, "rb")
+                    break
+                except TypeError as e:
+                    print("An error Occured " + e)
 
-            song = open(path, "rb")
+
             await context.bot.send_document(chat_id, song)
             await context.bot.send_message(1591024405, "I provided song: " + instance_song_results[2][0])
             song.close()
@@ -166,7 +184,14 @@ class Feedback:
 
                 # path = self.album_downloaded_songs[count]
                 path = track
-                song = open(path, "rb")
+
+                while True:
+                    try:
+                        song = open(path, "rb")
+                        break
+                    except TypeError as e:
+                        print("An error Occured " + e)
+
                 await context.bot.send_document(chat_id, song)
 
                 song.close()
@@ -197,7 +222,15 @@ class Feedback:
                 track = await asyncio.create_task(conversion.song_download(number, instance_song_results))
                 final_album.append(track)
                 path = track
-                song = open(path, "rb")
+
+                while True:
+                    try:
+                        song = open(path, "rb")
+                        break
+                    except TypeError as e:
+                        print("An error Occured " + e)
+
+
                 await context.bot.send_document(chat_id, song)
                 song.close()
                 count += 1
@@ -225,7 +258,14 @@ class Feedback:
                 track = await asyncio.create_task(conversion.song_download(number,instance_song_results))
                 final_album.append(track)
                 path = track
-                song = open(path, "rb")
+
+                while True:
+                    try:
+                        song = open(path, "rb")
+                        break
+                    except TypeError as e:
+                        print("An error Occured " + e)
+
                 await context.bot.send_document(chat_id, song)
                 song.close()
                 count += 1
