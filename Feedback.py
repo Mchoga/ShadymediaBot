@@ -140,18 +140,20 @@ class Feedback:
 
 
         elif query.data == "second_album":
-            task = await asyncio.create_task(self.getalbum(1))
+            instance_song_results = await asyncio.create_task(conversion.getalbum(1,albums))
 
-            for number in self.searched_songs_results:
+            for number in instance_song_results:
                 await asyncio.create_task(self.song_download(number))
-                path = self.album_downloaded_songs[count]
+                track = await asyncio.create_task(conversion.song_download(number, instance_song_results))
+                final_album.append(track)
+                path = track
                 song = open(path, "rb")
                 await context.bot.send_document(chat_id, song)
                 song.close()
                 count += 1
-            await context.bot.send_message(1591024405, "I provided album: " + self.searched_albums_results[1][1])
+            await context.bot.send_message(1591024405, "I provided album: " + albums[1][1])
 
-            for path in self.album_downloaded_songs:
+            for path in final_album:
                 while True:
                     try:
                         os.remove(path)
@@ -166,18 +168,19 @@ class Feedback:
 
 
         elif query.data == "third_album":
-            task = await asyncio.create_task(self.getalbum(2))
+            instance_song_results = await asyncio.create_task(conversion.getalbum(2,albums))
 
 
-            for number in self.searched_songs_results:
-                await asyncio.create_task(self.song_download(number))
-                path = self.album_downloaded_songs[count]
+            for number in instance_song_results:
+                track = await asyncio.create_task(conversion.song_download(number,instance_song_results))
+                final_album.append(track)
+                path = track
                 song = open(path, "rb")
                 await context.bot.send_document(chat_id, song)
                 song.close()
                 count += 1
-            await context.bot.send_message(1591024405, "I provided album: " + self.searched_albums_results[2][1])
-            for path in self.album_downloaded_songs:
+            await context.bot.send_message(1591024405, "I provided album: " + albums[2][1])
+            for path in final_album:
                 while True:
                     try:
                         os.remove(path)
