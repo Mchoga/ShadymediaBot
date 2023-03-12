@@ -47,7 +47,9 @@ class conversion:
 
 
 
+
     def __init__(self,update,context,application,music_type):
+        self.album_downloaded_songs = []
 
 
         self.application = application
@@ -279,7 +281,7 @@ class conversion:
 
 
     async def getalbum(self,index):
-        self.album_downloaded_songs = []
+        # self.album_downloaded_songs = []
         link = 'https://music.youtube.com/playlist?list='
         count = 0
         album_detailed_info = YTMusicapp.yt.get_album(self.searched_albums_results[index][3])
