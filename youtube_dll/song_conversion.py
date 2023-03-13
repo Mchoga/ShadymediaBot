@@ -48,8 +48,11 @@ class conversion:
 
     async def getsong(index,instance_song_results):
 
+        task = asyncio.create_task(conversion.song_download(index,instance_song_results))
+        await task
+        return task
 
-        return (await conversion.song_download(index,instance_song_results))
+        # return (await conversion.song_download(index,instance_song_results))
 
 
 
