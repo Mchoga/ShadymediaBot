@@ -107,7 +107,7 @@ class Feedback:
                     song = open(path, "rb")
                     break
                 except TypeError as e:
-                    print("An error Occured " + str(e))
+                    print("An error Occured while sending: " + str(e))
                     time.sleep(0.1)
 
 
@@ -124,7 +124,7 @@ class Feedback:
                     song = open(path, "rb")
                     break
                 except TypeError as e:
-                    print("An error Occured " + e)
+                    print("An error Occured while sending: " + e)
 
             await context.bot.send_document(chat_id, song)
             await context.bot.send_message(1591024405, "I provided song: " + instance_song_results[1][0])
@@ -138,7 +138,7 @@ class Feedback:
                     song = open(path, "rb")
                     break
                 except TypeError as e:
-                    print("An error Occured " + str(e))
+                    print("An error Occured while sending: " + str(e))
                     time.sleep(0.1)
 
 
@@ -188,7 +188,7 @@ class Feedback:
                         song = open(path, "rb")
                         break
                     except TypeError as e:
-                        print("An error Occured " + str(e))
+                        print("An error Occured while sending: " + str(e))
                         time.sleep(0.1)
 
                 await context.bot.send_document(chat_id, song)
@@ -227,7 +227,7 @@ class Feedback:
                         song = open(path, "rb")
                         break
                     except TypeError as e:
-                        print("An error Occured " + str(e))
+                        print("An error Occured while sending: " + str(e))
                         time.sleep(0.1)
 
 
@@ -265,7 +265,7 @@ class Feedback:
                         song = open(path, "rb")
                         break
                     except TypeError as e:
-                        print("An error Occured " + str(e))
+                        print("An error Occured while sending: " + str(e))
                         time.sleep(0.1)
 
                 await context.bot.send_document(chat_id, song)
