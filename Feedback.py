@@ -36,6 +36,7 @@ class Feedback:
         instance = self
 
         self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='first_song',block=False))
+        # self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='first_song',block=False))
         self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='second_song',block=False))
         self.application.add_handler(CallbackQueryHandler(self.song_callback, pattern='third_song',block=False))
         self.application.add_handler(CallbackQueryHandler(self.album_callback, pattern='first_album', block=False))
@@ -99,6 +100,7 @@ class Feedback:
         if query.data == "first_song":
             path = await asyncio.create_task(conversion.getsong(0,instance_song_results))
 
+            await asyncio.sleep(20)
             while True:
                 try:
                     song = open(path, "rb")
