@@ -9,7 +9,7 @@ import asyncio
 import inspect
 import urllib
 from datetime import time
-
+import threading
 import requests
 from ytmusicapi import YTMusic
 
@@ -48,11 +48,10 @@ class conversion:
 
     async def getsong(index,instance_song_results):
 
-        task = asyncio.create_task(conversion.song_download(index,instance_song_results))
-        await task
-        return task
 
-        # return (await conversion.song_download(index,instance_song_results))
+
+
+        return (await conversion.song_download(index,instance_song_results))
 
 
 
@@ -110,7 +109,14 @@ class conversion:
 
             video = yt.streams.filter(only_audio=True).first()
 
-            vid_file = video.download(output_path=database.songs_root_location)
+            print('Downloading')
+
+            # vid_file = video.download(output_path=database.songs_root_location)
+            vid_file = await asyncio.create_task(conversion.download(video))
+
+
+            print('download complete')
+
 
             base = os.path.splitext(vid_file)[0]
             audio_file = base + ".mp3"
@@ -175,5 +181,8 @@ class conversion:
 
 
 
+    async def download(video):
+        vid = video.download(output_path=database.songs_root_location)
+        return vid
 
 
