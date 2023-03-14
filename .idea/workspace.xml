@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a88004f1-3537-4e46-96c0-789e7a7af192" name="Changes" comment=" commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Feedback.py" beforeDir="false" afterPath="$PROJECT_DIR$/Feedback.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtube_dll/song_conversion.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtube_dll/song_conversion.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,13 +42,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677799574568</updated>
-    </task>
-    <task id="LOCAL-00073" summary=" commit">
-      <created>1678530859771</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1678530859771</updated>
     </task>
     <task id="LOCAL-00074" summary=" commit">
       <created>1678531223338</created>
@@ -383,7 +379,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678813928532</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary=" commit">
+      <created>1678814404206</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1678814404206</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

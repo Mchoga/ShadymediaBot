@@ -24,8 +24,8 @@ import os
 reply = ""
 bot_users={}
 
-database.songs_root_location = os.path.join(os.path.dirname(os.path.abspath(__file__))) + "/Songs"
-# database.songs_root_location = os.path.join(os.path.dirname(os.path.abspath(__file__))) + "\\Songs"
+# database.songs_root_location = os.path.join(os.path.dirname(os.path.abspath(__file__))) + "/Songs"
+database.songs_root_location = os.path.join(os.path.dirname(os.path.abspath(__file__))) + "\\Songs"
 music = YTMusicapp
 my_chat_ID =  1591024405
 

@@ -108,11 +108,13 @@ class Feedback:
                     break
                 except TypeError as e:
                     print("An error Occured while sending: " + str(e))
-                    time.sleep(0.1)
+                    time.sleep(2)
 
 
-
-            await context.bot.send_document(chat_id, song)
+            try:
+                await context.bot.send_document(chat_id, song)
+            except Exception as e:
+                print(print(e))
             await context.bot.send_message(chat_id, "I provided song: " + instance_song_results[0][0])
             song.close()
 
@@ -139,7 +141,7 @@ class Feedback:
                     break
                 except TypeError as e:
                     print("An error Occured while sending: " + str(e))
-                    time.sleep(0.1)
+                    time.sleep(2)
 
 
             await context.bot.send_document(chat_id, song)
@@ -156,7 +158,7 @@ class Feedback:
                 if e.errno != 32:  # skip if error is not related to file lock
                     raise
                 print("Waiting to delete song")
-                time.sleep(0.1)  # wait for 100ms before trying again
+                time.sleep(2)  # wait for 100ms before trying again
 
     async def album_callback(self,update, context):
         final_album = []
