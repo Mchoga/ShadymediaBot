@@ -99,9 +99,9 @@ class Feedback:
 
         if query.data == "first_song":
             # path = await asyncio.create_task(conversion.getsong(0,instance_song_results))
-            path = asyncio.create_task(conversion.getsong(0,instance_song_results))
+            path = await asyncio.create_task(conversion.getsong(0,instance_song_results))
             print('Sending song to ' + update.callback_query.from_user.first_name)
-            await asyncio.sleep(20)
+            await asyncio.sleep(25)
             while True:
                 try:
                     song = open(path, "rb")

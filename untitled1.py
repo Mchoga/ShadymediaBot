@@ -3,5 +3,8 @@ import asyncio
 
 
 
-
-time.sleep(0.1)
+while True:
+    count = 0
+    count+=1
+    print(count)
+    time.sleep(2)

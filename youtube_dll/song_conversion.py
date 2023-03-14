@@ -111,8 +111,8 @@ class conversion:
 
             print('Downloading')
 
-            # vid_file = video.download(output_path=database.songs_root_location)
-            vid_file = await asyncio.create_task(conversion.download(video))
+            vid_file = video.download(output_path=database.songs_root_location)
+
 
 
             print('download complete')
@@ -179,10 +179,5 @@ class conversion:
         audio.save(v2_version=3)
 
 
-
-
-    async def download(video):
-        vid = video.download(output_path=database.songs_root_location)
-        return vid
 
 
