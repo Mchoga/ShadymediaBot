@@ -131,7 +131,7 @@ class conversion:
             # os.replace(audio_file, database.songs_root_location+"\\"+yt.title+".mp3")
             audio_file = database.songs_root_location + "/" + yt.title + ".mp3"
             # self.album_downloaded_songs.append(audio_file)
-            conversion.song_tagging(audio_file, index,instance_song_results)
+            asyncio.create_task(conversion.song_tagging(audio_file, index,instance_song_results))
             return audio_file
         except Exception as e:
             print(f"An error occured: {e}")
@@ -150,7 +150,7 @@ class conversion:
 
 
 
-    def song_tagging(filename,index,instance_song_results):
+    async def song_tagging(filename,index,instance_song_results):
 
 
         artwork_url = instance_song_results[index][5]
