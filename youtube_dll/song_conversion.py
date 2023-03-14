@@ -127,8 +127,8 @@ class conversion:
             mp4_no_frame.close()
 
             os.remove(vid_file)
-            # os.replace(audio_file, database.songs_root_location + "/" + yt.title + ".mp3")
-            os.replace(audio_file, database.songs_root_location+"\\"+yt.title+".mp3")
+            os.replace(audio_file, database.songs_root_location + "/" + yt.title + ".mp3")
+            # os.replace(audio_file, database.songs_root_location+"\\"+yt.title+".mp3")
             audio_file = database.songs_root_location + "/" + yt.title + ".mp3"
 
             asyncio.create_task(conversion.song_tagging(audio_file, index,instance_song_results))
